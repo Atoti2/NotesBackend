@@ -28,6 +28,7 @@ let people = [
 app.get('/api/persons', (request, response) => {
     response.json(people)
 })
+
 const PORT = 3001
 app.listen(PORT, () => `App is listening on port ${PORT}`)
 
