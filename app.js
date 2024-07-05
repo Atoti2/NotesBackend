@@ -12,10 +12,11 @@ const mongoose = require('mongoose')
 
 morgan.token("body", (req) => {
     return JSON.stringify(req.body);
-  });
-  
+});
+
 mongoose.set('strictQuery', false)
 logger.info('connecting to', config.MONGODB_URL)
+mongoose.connect(config.MONGODB_URL)
     .then(() => {
         logger.info('connected to MongoDB')
     })
