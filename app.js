@@ -1,6 +1,8 @@
 const notesRouter = require('./controllers/notes')
+const usersRouter = require('./controllers/users')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
+require('express-async-errors')
 require("dotenv").config();
 
 const express = require("express");
@@ -30,7 +32,9 @@ app.use(morgan(":method :url - :total-time ms :body "));
 app.use(cors());
 
 app.use('/api/notes', notesRouter)
+app.use('/api/users', usersRouter)
 app.use(middleware.unknownEndpoint)
+
 app.use(middleware.errorHandler)
 
 module.exports = app
