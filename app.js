@@ -1,5 +1,6 @@
 const notesRouter = require('./controllers/notes')
 const usersRouter = require('./controllers/users')
+const loginRouter = require('./controllers/login')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 require('express-async-errors')
@@ -33,6 +34,8 @@ app.use(cors());
 
 app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
+
 app.use(middleware.unknownEndpoint)
 
 app.use(middleware.errorHandler)
